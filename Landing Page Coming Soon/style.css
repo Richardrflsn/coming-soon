@@ -8,10 +8,53 @@
 }
 
 .navbar {
-    text-align: center;
-    padding: 1rem 0;
-    color: #fff;
-    background-color: blue;
+    background-color: rgb(22, 7, 36);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 5rem;
+}
+
+.left h1 {
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.checkBtn {
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+.checkBtn {
+    cursor: pointer;
+    font-size: 30px;
+    float: right;
+    color: white;
+    line-height: 80px;
+}
+
+.right ul {
+    display: flex;
+    list-style: none;
+}
+
+.right ul li a {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 1s;
+}
+
+.right ul li a:hover {
+    background-color: #fff;
+    border-radius: 7px;
+    color: rgb(22, 7, 36);
 }
 
 .home-section {
@@ -56,7 +99,7 @@
 .home-right img {
     position: relative;
     border-radius: 50%;
-    width: 20rem;
+    width: 100%;
     transition: all .4s;
 
     box-shadow: 1px 7px 13px 0 black;
@@ -130,6 +173,33 @@
     .countdown {
         padding: 0;
         margin: 1rem auto;
+    }
+}
+
+@media screen and (max-width:805px) {
+    .list {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(22, 7, 36);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 4rem;
+        left: 100%;
+        transition: all 1s;
+    }
+
+    #check {
+        display: none;
+    }
+
+    .checkBtn {
+        display: block;
+    }
+
+    #check:checked~ul {
+        left: 0%;
     }
 }
 
