@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -508,7 +509,7 @@ body {
     color: #ffffff;
     position: relative;
     font-size: 40px;
-    font-weight: bold;
+    font-weight: medium;
     margin-bottom: 30px;
     display: inline-block;
 }
@@ -645,7 +646,6 @@ body {
 }
 
 /* Services Section style */
-
 .services-container {
     color: #ffffff;
     width: 100%;
@@ -653,4 +653,175 @@ body {
     padding: 50px 8%;
 }
 
-/* WEBSITE CREATED BY RICHARD HIMSELF */
+.services-container h1{
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+}
+
+.services-container h1::before {
+    content: '';
+    position: absolute;
+    width: 20%;
+    height: 3px;
+    background: #adb5bd;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.services-container h1::after {
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 3px;
+    background-color: #5f5ff6;
+    bottom: 0;
+    left: calc(50% - 1px);
+    transform: translateX(-50%);
+}
+
+.services-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.services-card {
+    padding: 25px 10px;
+    width: calc(26% - 20px);
+    border-radius: 6px;
+    background: #222;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.services-card:hover {
+    background-color: #3a86ff;
+}
+
+.services-box {
+    transition: all 0.4s ease;
+}
+
+.services-card:hover .services-box {
+    transform: scale(1.05);
+}
+
+.services-box i {
+    font-size: 40px;
+    color: #5f5ff6;
+    transition: all 0.4s ease;
+}
+
+.services-card:hover .services-box i {
+    color: #ffffff;
+}
+
+.services-box h3 {
+    font-size: 20px;
+    font-weight: medium;
+    padding: 10px 0 7px;
+}
+
+@media(max-width: 868px) {
+    .services-container {
+        padding: 0 25px;
+    }
+
+    .services-card {
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+}
+
+@media(max-width: 768px) {
+    .services-card {
+        width: 100%;
+    }
+}
+
+/* Portofolio Section style */
+#portofolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px 0px;
+}
+
+.portofolio-heading {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.portofolio-heading h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.portofolio-heading span {
+    color: #ffffff;
+}
+
+.portofolio-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid #e5e5e5;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.portofolio-filter ul {
+    list-style: none;
+}
+
+.portofolio-filter li {
+    margin: 10px;
+    padding: 5px 20px;
+    color: #ffffff;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    cursor: pointer;
+    user-select: none;
+}
+
+.portofolio-filter-active {
+    background-color: #5f5ff6;
+    color: #3a86ff;
+}
+
+.project-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.project-box {
+    width: 330px;
+    padding: 15px;
+    border: 1px solid #e5e5e5;
+    margin: 20px;
+}
+
+.project-box img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+}
