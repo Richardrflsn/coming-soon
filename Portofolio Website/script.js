@@ -15,18 +15,45 @@ const textLoad = () => {
 textLoad();
 setInterval(textLoad, 12000);
 
-$(document).on('click', '.portofolio-filter li', function(){
-    $(this).addClass('portofolio-filter-active').siblings().removeClass('portofolio-filter-active')
-});
+// Function to handle click filter
+function handleFilterClick(event) {
+    const filterItems = document.querySelectorAll('.portofolio-filter li');
+    for(const item of filterItems) {
+        item.classList.remove('portofolio-filter-active');
+    }
+    event.target.classList.add('portofolio-filter-active');
+}
 
-$(document).ready(function() {
-    $('.list').click(function(){
-        const value = $(this).attr('data-filter');
-        if(value == 'all'){
-            $('.project-box').show('1000');
-        } else {
-            $('.project-box').not('.'+value).hide('1000');
-            $('.project-box').filter('.'+value).show('1000');
-        }
-    })
-})
+// Add click event listeners to '.portofolio-filter li' elements
+const filterItems = document.querySelectorAll('.portofolio-filter li');
+for (const item of filterItems) {
+    item.addEventListener('click', handleFilterClick);
+}
+
+// Function to handle document ready event
+function onDocumentReady() {
+    const listItems = document.querySelectorAll('.list');
+    for(const listItem of listItems) {
+        listItem.addEventListener('click', function() {
+            const value = this.getAttribute('data-filter');
+            const projectBoxes = document.querySelectorAll('.project-box');
+
+            if(value === 'all') {
+                for(const box of projectBoxes) {
+                    box.style.display = 'block';
+                }
+            } else {
+                for(const box of projectBoxes) {
+                    if(!box.classList.contains(value)) {
+                        box.style.display = 'none';
+                    } else {
+                        box.style.display = 'block';
+                    }
+                }
+            }
+        });
+    }
+}
+
+  // Add a DOMContentLoaded event listener to trigger code when the document is ready
+document.addEventListener('DOMContentLoaded', onDocumentReady);
