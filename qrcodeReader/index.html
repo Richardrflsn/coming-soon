@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qrcode scanner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000000;
+        }
+
+        #reader {
+            width: 600px;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    </style>
+
+    <div id="reader"></div>
+    <div id="result"></div>
+
+    <script>
+
+        const scanner = new Html5QrcodeScanner('reader', {
+            qrbox: {
+                width: 250,
+                height: 250,
+            },
+            fps: 20,
+        });
+
+        scanner.render(success, error);
+
+        function success(result) {
+            // prints result as a link inside result element
+            document.getElementById('result').innerHTML = `
+            <h2>Success!</h2>
+            <p><a href="${result}">${result}</a></p>
+            `;
+
+            // clears scanning instance
+            // remove reader element from DOM since no longer needed
+            scanner.clear();
+            document.getElementById('reader').remove();
+        }
+
+        // prints any errors to the console
+        function error(err) {
+            console.error(err);
+        }
+
+    </script>
+</body>
+</html>
